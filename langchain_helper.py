@@ -18,7 +18,7 @@ vectordbfilepath = "faiss_index"
 def create_vector_db():
     loader = CSVLoader(file_path="faqs.csv", source_column="prompt")
     data = loader.load()
-    vectordb = FAISS.from_documents(documents=data, embedding=embeddings, allow_dangerous_deserialization=True)
+    vectordb = FAISS.from_documents(documents=data, embedding=embeddings)   
     vectordb.save_local(vectordbfilepath)
 
 def get_qa_chain():
