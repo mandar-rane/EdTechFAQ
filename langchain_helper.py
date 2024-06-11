@@ -22,7 +22,7 @@ def create_vector_db():
     vectordb.save_local(vectordbfilepath)
 
 def get_qa_chain():
-    vectordb = FAISS.load_local(vectordbfilepath, embeddings)
+    vectordb = FAISS.load_local(vectordbfilepath, embeddings, allow_dangerous_deserialization=True)
 
     retriever = vectordb.as_retriever()
 
